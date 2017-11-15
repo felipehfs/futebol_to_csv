@@ -33,3 +33,15 @@ class SoccerScrapy(object):
                 pontuacao[index - 1].derrotas = cells[4].text.strip()
                 
         return pontuacao
+
+    def to_csv(self, path, delimiter=';'):
+        teams = self.find_data()
+        columns = ['Posição', 'Time',
+                  'Pontos', 'Partidas',
+                  'Vitórias', 'Empates',
+                  'Derrotas']
+        
+        with open(path, 'w') as file:
+            file.write(delimiter.join(columns) + '\n')
+            for item in teams:
+                file.write(item.to_csv(delimiter))
