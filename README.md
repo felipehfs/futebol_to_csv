@@ -2,14 +2,14 @@
 
 ![Futebol](https://gds.portal5g-media.com/contentFiles/system/pictures/2015/5/135669/original/futebol.jpg)
 
-O **futebol_to_csv** é um projeto que obtém a classficação atual da série A do 
+O **Futebol_to_csv** é um projeto que obtém a classficação atual da série A do 
 campeonato brasileiro para um arquivo CSV.
+A raspagem dos dados é originada no site do [Globo esporte](http://globoesporte.globo.com/futebol/brasileirao-serie-a/)
 
-
-## Configuracao
+## Configuração
 * Python3
 * PIP
 
-## Instalação das dependencias
+## Instalação das dependências do projeto
 
 pip install -r requirements.txt
