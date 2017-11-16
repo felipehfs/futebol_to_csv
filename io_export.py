@@ -32,7 +32,7 @@ class CSVExporter(Exporter):
         content = self.__delimiter.join(self._columns)  + '\n'
     
         for team in teams:
-            content += team.to_csv(';')
+            content += team.to_csv(self.__delimiter)
         return content
             
 class JSONExporter(Exporter):
