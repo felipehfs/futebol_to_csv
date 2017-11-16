@@ -3,13 +3,17 @@ from team_soccer import Team
 from bs4 import BeautifulSoup
 
 class SoccerScrapy(object):
-    ''' The class find on the web the classification in league of the Brazil '''
+    '''
+        The class find on the web the classification in league of the Brazil
+    '''
     def __init__(self):
         self.page = requests.get('http://globoesporte.globo.com/futebol/brasileirao-serie-a/')
         self.soup = BeautifulSoup(self.page.text, 'html.parser')
 
     def find_data(self):
-        ''' Search the data and return an arrays of team and its qualification '''
+        '''
+            Search the data and return an arrays of team and its qualification
+        '''
         table_team = self.soup.find('table', {'class': 'tabela-times'})
         table_pontos = self.soup.find('table', {'class': 'tabela-pontos'})
         pontuacao = []
@@ -33,15 +37,3 @@ class SoccerScrapy(object):
                 pontuacao[index - 1].derrotas = cells[4].text.strip()
                 
         return pontuacao
-
-    def to_csv(self, path, delimiter=';'):
-        teams = self.find_data()
-        columns = ['Posição', 'Time',
-                  'Pontos', 'Partidas',
-                  'Vitórias', 'Empates',
-                  'Derrotas']
-        
-        with open(path, 'w') as file:
-            file.write(delimiter.join(columns) + '\n')
-            for team in teams:
-                file.write(team.to_csv(delimiter))
