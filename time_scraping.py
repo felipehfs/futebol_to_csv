@@ -43,5 +43,5 @@ class SoccerScrapy(object):
         
         with open(path, 'w') as file:
             file.write(delimiter.join(columns) + '\n')
-            for item in teams:
-                file.write(item.to_csv(delimiter))
+            for team in teams:
+                file.write(team.to_csv(delimiter))
