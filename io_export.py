@@ -37,16 +37,16 @@ class CSVExporter(Exporter):
             
 class JSONExporter(Exporter):
     '''
-        The JSON writer
+        The JSON exporter
     '''
     def __init__(self):
         super().__init__()
 
-    def build_string(self, path, filename):
+    def build_string(self):
         '''
-            Write Json File
+            Write Json representation
         '''
-        teams = self.scrapy.find_data()
+        teams = self._scrapy.find_data()
         return json.dumps([team.__dict__ for team in teams])
         
         
